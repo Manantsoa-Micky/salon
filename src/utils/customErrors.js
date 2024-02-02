@@ -1,7 +1,10 @@
 class CustomError extends Error {
     constructor(message) {
-        super(message);
-        this.name = this.constructor.name;
+        if (message) {
+            super(message);
+        } else {
+            super('An error occurred');
+        }
     }
 }
 
