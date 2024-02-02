@@ -10,7 +10,7 @@
         "format:write": "prettier --write .",
         "lint:check": "eslint .",
         "lint:fix": "eslint --fix .",
-        "start": "node index.js"
+        "start": "node src/index.js"
     },
     "keywords": [],
     "author": "",
