@@ -26,8 +26,8 @@ app.use('/auth', authRoutes);
 
 app.use(errorHandler);
 mongoose.connect(DATABASE_URL).then(function () {
-    logger.info('⚡ Connected to DB...');
+  logger.info('⚡ Connected to DB...');
 });
 app.listen(PORT, () => {
-    logger.info(`⚡ Server started, listening to port: ${PORT}`);
+  logger.info(`⚡ Server started, listening to port: ${PORT}`);
 });
