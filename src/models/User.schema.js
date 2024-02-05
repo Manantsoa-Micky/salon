@@ -75,6 +75,11 @@ const userSchema = new mongoose.Schema({
     required: false,
     default: [],
   },
+  services: {
+    type: [mongoose.Types.ObjectId],
+    required: false,
+    default: [],
+  },
 });
 
 userSchema.pre('save', async function (next) {

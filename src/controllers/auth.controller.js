@@ -8,17 +8,16 @@ const {
   ValidationError,
 } = require('../utils/customErrors');
 
+const userService = require('../services/user.service');
+
 const logger = winston.loggers.get('simpleLogger');
 
 const maxAge = 7 * 24 * 60 * 60;
 
-module.exports.signup = async (req, res, next) => {
-  const { email, password } = req.body;
+const signup = async (req, res, next) => {
   try {
-    logger.info(email);
-    if (!email || !password)
-      throw new ValidationError('erreur dans le mail ou le mot de passe ');
-    const user = await User.create({ email, password });
+    logger.info(req.body.email);
+    const user = await userService.createUser(req.body);
     const token = createToken(user._id, maxAge);
     res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge * 1000 });
     res.status(201).json({ user: user._id });
@@ -26,7 +25,7 @@ module.exports.signup = async (req, res, next) => {
     return next(error);
   }
 };
-module.exports.login = async (req, res, next) => {
+const login = async (req, res, next) => {
   const { email, password } = req.body;
   try {
     const user = await User.findOne({ email });
@@ -46,6 +45,8 @@ module.exports.login = async (req, res, next) => {
   }
 };
 
-module.exports.logout = async (req, res, next) => {
+const logout = async (req, res, next) => {
   res.cookie('jwt', '', { maxAge: 1 });
 };
+
+module.exports = { signup, login, logout };

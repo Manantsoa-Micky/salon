@@ -1,0 +1,56 @@
+{
+  "Soins de la peau": [
+    "Nettoyage de peau en profondeur",
+    "Traitements anti-âge",
+    "Peeling chimique",
+    "Soins hydratants et nourrissants"
+  ],
+  "Épilation": [
+    "Épilation à la cire",
+    "Épilation au sucre",
+    "Épilation au laser",
+    "Électrolyse",
+    "Épilation des sourcils"
+  ],
+  "Soins des ongles": [
+    "Manucure classique",
+    "Manucure française",
+    "Pédicure classique",
+    "Pédicure spa",
+    "Pose de vernis régulier ou gel"
+  ],
+  "Coiffure": [
+    "Coupe de cheveux",
+    "Coloration des cheveux",
+    "Mèches et balayage",
+    "Permanente",
+    "Lissage des cheveux"
+  ],
+  "Extensions capillaires": [
+    "Extensions de cheveux naturels",
+    "Tissage de cheveux",
+    "Perruques"
+  ],
+  "Maquillage": [
+    "Maquillage de jour",
+    "Maquillage de soirée",
+    "Maquillage de mariage",
+    "Cours de maquillage"
+  ],
+  "Massage et bien-être": [
+    "Massage suédois",
+    "Massage aux pierres chaudes",
+    "Massage thaïlandais",
+    "Massage du cuir chevelu"
+  ],
+  "Bronzage": ["Cabines de bronzage", "Pulvérisation autobronzante"],
+  "Soins des cils et des sourcils": [
+    "Extensions de cils",
+    "Teinture des cils et des sourcils",
+    "Rehaussement des cils"
+  ],
+  "Consultations en beauté": [
+    "Évaluation personnalisée des besoins",
+    "Conseils en soins de la peau et en maquillage"
+  ]
+}

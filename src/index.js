@@ -6,6 +6,7 @@ const { errorHandler } = require('./middlewares/errorHandler.middleware');
 require('./utils/loggers');
 const winston = require('winston');
 const authRoutes = require('./routes/auth.route');
+const productRoutes = require('./routes/product.route');
 const testRoutes = require('./routes/test.route');
 const cookieParser = require('cookie-parser');
 const { requireAuth } = require('./middlewares/auth.middleware');
@@ -23,6 +24,7 @@ app.use(express.json());
 
 app.use('/test', requireAuth, testRoutes);
 app.use('/auth', authRoutes);
+app.use('/product', productRoutes);
 
 app.use(errorHandler);
 mongoose.connect(DATABASE_URL).then(function () {
