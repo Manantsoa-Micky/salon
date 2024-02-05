@@ -11,6 +11,11 @@ const getAllProducts = async () => {
   return products;
 };
 
+const getProductByFilter = async (filter) => {
+  const product = await Product.find(filter);
+  return product;
+};
+
 const getProductById = async (productId) => {
   const products = await Product.findById(productId);
   return products;
@@ -52,4 +57,5 @@ module.exports = {
   getAllProducts,
   getProductById,
   seedProduct,
+  getProductByFilter,
 };
