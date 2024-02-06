@@ -1,17 +1,10 @@
 const { cartStatus } = require('../enums/enums');
 const User = require('../models/User.schema');
+const Cart = require('../models/cart');
 const { transformIdListToStringList } = require('../utils/helper');
 
 const createUser = async (userData) => {
-  const cart = {
-    orders: [],
-    status: cartStatus.CREATED,
-  };
-  const data = {
-    ...userData,
-    cart: cart,
-  };
-  const user = await User.create(data);
+  const user = await User.create(userData);
   return user;
 };
 
@@ -36,11 +29,16 @@ const updateUser = async (filter, update) => {
 };
 
 const addToCart = async (userId, serviceList) => {
+  const newCart = [
+    {
+      orders: [...serviceList],
+      status: cartStatus.ACTIVE,
+    },
+  ];
+  const cart = await Cart.create(newCart);
   const user = await User.findById(userId);
-  serviceList.forEach((service) => {
-    user.cart.push(service);
-  });
-  user.cart = transformIdListToStringList(user.cart);
+  user.cart = cart;
+  await user.save();
   return user.cart;
 };
 

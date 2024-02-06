@@ -6,5 +6,6 @@ const router = Router();
 router.post('/addService', userController.addService);
 router.get('/services', userController.getUserServices);
 router.delete('/removeService', userController.removeService);
+router.post('/addToCart', userController.addToCart);
 
 module.exports = router;

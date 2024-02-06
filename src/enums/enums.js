@@ -15,9 +15,8 @@ const OrderStatus = Enum({
 });
 
 const cartStatus = Enum({
-  CREATED: 'created',
-  CLEARED: 'cleared',
-  PAID: 'paid',
+  ACTIVE: 'active',
+  INACTIVE: 'inactive',
 });
 
 module.exports = {

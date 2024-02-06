@@ -54,10 +54,11 @@ const removeService = async (req, res, next) => {
 
 const addToCart = async (req, res, next) => {
   try {
-    const { serviceId } = req.body;
+    const { serviceList } = req.body;
     const decoded = jwt.verify(req.cookies.jwt, process.env.JWT_SECRET);
-    const cart = await userService.addToCart(decoded.userId, serviceId);
-    res.status(200).json({ services: cart });
+    console.log(decoded);
+    const cart = await userService.addToCart(decoded.id, serviceList);
+    res.status(200).json({ cart: cart });
   } catch (error) {
     next(error);
   }
