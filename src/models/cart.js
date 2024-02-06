@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const cartSchema = new mongoose.Schema({
   orders: {
-    type: mongoose.Types.ObjectId,
+    type: [mongoose.Types.ObjectId],
     required: true,
   },
   date: {
@@ -20,4 +20,16 @@ const cartSchema = new mongoose.Schema({
     required: false,
     default: Date.now,
   },
+  customerId: {
+    type: mongoose.Types.ObjectId,
+    required: true,
+  },
+  status: {
+    type: String,
+    required: true,
+  },
 });
+
+const Cart = mongoose.model('cart', cartSchema);
+
+module.exports = Cart;

@@ -14,7 +14,13 @@ const OrderStatus = Enum({
   CANCELLED: 'cancelled',
 });
 
+const cartStatus = Enum({
+  VALIDATED: 'validated',
+  PAID: 'paid',
+});
+
 module.exports = {
   UserRole,
   OrderStatus,
+  cartStatus,
 };
