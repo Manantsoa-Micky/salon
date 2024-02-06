@@ -1,4 +1,4 @@
-export function Enum(baseEnum) {
+function Enum(baseEnum) {
   return new Proxy(baseEnum, {
     get(target, name) {
       if (!Object.prototype.hasOwnProperty.call(baseEnum, name)) {
@@ -11,3 +11,4 @@ export function Enum(baseEnum) {
     },
   });
 }
+module.exports = Enum;

@@ -15,7 +15,8 @@ const OrderStatus = Enum({
 });
 
 const cartStatus = Enum({
-  VALIDATED: 'validated',
+  CREATED: 'created',
+  CLEARED: 'cleared',
   PAID: 'paid',
 });
 

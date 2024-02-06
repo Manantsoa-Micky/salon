@@ -78,7 +78,14 @@ const userSchema = new mongoose.Schema({
   services: {
     type: [mongoose.Types.ObjectId],
     required: false,
+    ref: 'Product',
     default: [],
+  },
+  cart: {
+    type: [mongoose.Types.ObjectId],
+    required: false,
+    default: [],
+    ref: 'Cart',
   },
 });
 

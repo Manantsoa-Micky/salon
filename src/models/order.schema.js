@@ -4,6 +4,7 @@ const orderSchema = new mongoose.Schema({
   product: {
     type: mongoose.Types.ObjectId,
     required: true,
+    ref: 'Product',
   },
   date: {
     type: Date,
@@ -16,10 +17,12 @@ const orderSchema = new mongoose.Schema({
   customer: {
     type: mongoose.Types.ObjectId,
     required: true,
+    ref: 'User',
   },
   employee: {
     type: mongoose.Types.ObjectId,
     required: true,
+    ref: 'User',
   },
   createdAt: {
     type: Date,
@@ -37,6 +40,6 @@ const orderSchema = new mongoose.Schema({
   },
 });
 
-const Order = mongoose.model('order', orderSchema);
+const Order = mongoose.model('Order', orderSchema);
 
 module.exports = Order;

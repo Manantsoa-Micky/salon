@@ -4,6 +4,7 @@ const preferenceSchema = new mongoose.Schema({
   user: {
     type: mongoose.Types.ObjectId,
     required: true,
+    ref: 'User',
   },
   service: {
     type: [String],
@@ -22,6 +23,6 @@ const preferenceSchema = new mongoose.Schema({
   },
 });
 
-const Preference = mongoose.model('preference', preferenceSchema);
+const Preference = mongoose.model('Preference', preferenceSchema);
 
 module.exports = Preference;

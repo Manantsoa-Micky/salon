@@ -13,6 +13,7 @@ const paymentSchema = new mongoose.Schema({
   customer: {
     type: mongoose.Types.ObjectId,
     required: true,
+    ref: 'User',
   },
   createdAt: {
     type: Date,
@@ -22,9 +23,10 @@ const paymentSchema = new mongoose.Schema({
   order: {
     type: mongoose.Types.ObjectId,
     required: true,
+    ref: 'Order',
   },
 });
 
-const Payment = mongoose.model('payment', paymentSchema);
+const Payment = mongoose.model('Payment', paymentSchema);
 
 module.exports = Payment;
