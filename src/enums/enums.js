@@ -9,6 +9,7 @@ const UserRole = Enum({
 const OrderStatus = Enum({
   INITIATED: 'initiated',
   PENDING: 'pending',
+  PAID: 'paid',
   DONE: 'done',
   CANCELLED: 'cancelled',
 });
