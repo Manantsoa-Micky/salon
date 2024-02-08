@@ -3,8 +3,6 @@ const { isEmail } = require('validator');
 const bcrypt = require('bcrypt');
 const Review = require('./review.schema');
 const Cart = require('./cart.schema');
-const Product = require('./product.schema');
-
 const userSchema = new mongoose.Schema({
   email: {
     type: String,

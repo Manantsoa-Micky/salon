@@ -9,6 +9,11 @@ const createUser = async (userData) => {
   return user;
 };
 
+const findUserById = async (id) => {
+  const user = User.findById(id);
+  return user;
+};
+
 const getAllUsers = async () => {
   const users = await User.find();
   return users;
@@ -70,4 +75,5 @@ module.exports = {
   addReview,
   getAllUsers,
   hardDeleteUser,
+  findUserById,
 };
