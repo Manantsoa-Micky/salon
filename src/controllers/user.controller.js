@@ -75,8 +75,8 @@ const addReview = async (req, res, next) => {
 
 const deleteUser = async (req, res, next) => {
   try {
-    const decoded = jwt.verify(req.cookies.jwt, process.env.JWT_SECRET);
-    const deletedUser = await userService.hardDeleteUser(decoded.id);
+    const { userID } = req.body;
+    const deletedUser = await userService.hardDeleteUser(userID);
     res.status(200).json({ user: deletedUser });
   } catch (error) {
     next(error);
