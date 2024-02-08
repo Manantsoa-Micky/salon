@@ -7,5 +7,7 @@ router.post('/addService', userController.addService);
 router.get('/services', userController.getUserServices);
 router.delete('/removeService', userController.removeService);
 router.post('/addToCart', userController.addToCart);
+router.post('/addReview', userController.addReview);
+router.delete('/delete', userController.deleteUser);
 
 module.exports = router;

@@ -1,6 +1,9 @@
 const mongoose = require('mongoose');
 const { isEmail } = require('validator');
 const bcrypt = require('bcrypt');
+const Review = require('./review.schema');
+const Cart = require('./cart.schema');
+const Product = require('./product.schema');
 
 const userSchema = new mongoose.Schema({
   email: {
@@ -52,28 +55,11 @@ const userSchema = new mongoose.Schema({
     required: false,
     default: false,
   },
-  review: {
-    type: [
-      {
-        author: {
-          type: String,
-          required: false,
-          default: 'Anonymous',
-        },
-        content: {
-          type: String,
-          required: false,
-          default: '',
-        },
-      },
-    ],
+  reviews: {
+    type: [mongoose.Types.ObjectId],
     required: false,
     default: [],
-  },
-  rating: {
-    type: [Number],
-    required: false,
-    default: [],
+    ref: 'Review',
   },
   services: {
     type: [mongoose.Types.ObjectId],
@@ -95,6 +81,13 @@ userSchema.pre('save', async function (next) {
   next();
 });
 
-const User = mongoose.model('user', userSchema);
+userSchema.pre('findOneAndDelete', async function (next) {
+  const userToDelete = await this.model.findOne(this.getQuery());
+  await Review.deleteMany({ _id: { $in: userToDelete.reviews } });
+  await Cart.deleteMany({ _id: { $in: userToDelete.cart } });
+  next();
+});
+
+const User = mongoose.model('User', userSchema);
 
 module.exports = User;

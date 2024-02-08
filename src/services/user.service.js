@@ -1,10 +1,26 @@
 const { cartStatus } = require('../enums/enums');
 const User = require('../models/User.schema');
-const Cart = require('../models/cart');
+const Cart = require('../models/cart.schema');
+const Review = require('../models/review.schema');
 const { transformIdListToStringList } = require('../utils/helper');
 
 const createUser = async (userData) => {
   const user = await User.create(userData);
+  return user;
+};
+
+const getAllUsers = async () => {
+  const users = await User.find();
+  return users;
+};
+
+const updateUser = async (filter, update) => {
+  const user = await User.findOneAndUpdate(filter, update, { new: true });
+  return user;
+};
+
+const hardDeleteUser = async (userId) => {
+  const user = await User.findOneAndDelete({ _id: userId });
   return user;
 };
 
@@ -23,11 +39,6 @@ const getUserByFilter = async (filter) => {
   return user;
 };
 
-const updateUser = async (filter, update) => {
-  const user = await User.findOneAndUpdate(filter, update, { new: true });
-  return user;
-};
-
 const addToCart = async (userId, serviceList) => {
   const newCart = [
     {
@@ -42,10 +53,21 @@ const addToCart = async (userId, serviceList) => {
   return user.cart;
 };
 
+const addReview = async (reviewData, userId) => {
+  const review = await Review.create(reviewData);
+  const user = await User.findById(userId);
+  user.reviews.push(review._id);
+  user.save();
+  return review;
+};
+
 module.exports = {
   createUser,
   addService,
   getUserByFilter,
   updateUser,
   addToCart,
+  addReview,
+  getAllUsers,
+  hardDeleteUser,
 };

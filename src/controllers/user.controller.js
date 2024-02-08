@@ -56,9 +56,28 @@ const addToCart = async (req, res, next) => {
   try {
     const { serviceList } = req.body;
     const decoded = jwt.verify(req.cookies.jwt, process.env.JWT_SECRET);
-    console.log(decoded);
     const cart = await userService.addToCart(decoded.id, serviceList);
     res.status(200).json({ cart: cart });
+  } catch (error) {
+    next(error);
+  }
+};
+
+const addReview = async (req, res, next) => {
+  try {
+    const decoded = jwt.verify(req.cookies.jwt, process.env.JWT_SECRET);
+    const review = await userService.addReview(req.body, decoded.id);
+    res.status(201).json({ review: review });
+  } catch (error) {
+    next(error);
+  }
+};
+
+const deleteUser = async (req, res, next) => {
+  try {
+    const decoded = jwt.verify(req.cookies.jwt, process.env.JWT_SECRET);
+    const deletedUser = await userService.hardDeleteUser(decoded.id);
+    res.status(200).json({ user: deletedUser });
   } catch (error) {
     next(error);
   }
@@ -69,4 +88,6 @@ module.exports = {
   removeService,
   getUserServices,
   addToCart,
+  addReview,
+  deleteUser,
 };
