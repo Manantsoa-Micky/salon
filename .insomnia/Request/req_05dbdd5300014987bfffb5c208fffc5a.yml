@@ -1,0 +1,34 @@
+_id: req_05dbdd5300014987bfffb5c208fffc5a
+type: Request
+parentId: wrk_116ff35556534f47aa5edc335603a55a
+modified: 1707517126408
+created: 1707516972576
+url: localhost:3001/auth/signup
+name: Create Account (signup)
+description: ""
+method: POST
+body:
+  mimeType: application/json
+  text: |-
+    {
+    	"email": "obethetor@gmail.com",
+    	"password": "aizertii997",
+    	"salary": 500000,
+    	"role": "manager",
+    	"username": "obethetor"
+    }
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+  - name: User-Agent
+    value: insomnia/2023.5.8
+authentication: {}
+metaSortKey: -1707516972576
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global
