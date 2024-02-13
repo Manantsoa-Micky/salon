@@ -9,5 +9,12 @@ router.delete('/removeService', userController.removeService);
 router.post('/addToCart', userController.addToCart);
 router.post('/addReview', userController.addReview);
 router.delete('/delete', userController.deleteUser);
+router.get('/test', (req, res, next) => {
+  try {
+    res.status(200).json({ name: 'Micky', age: 27 });
+  } catch (error) {
+    next(error);
+  }
+});
 
 module.exports = router;
