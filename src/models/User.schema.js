@@ -4,6 +4,14 @@ const bcrypt = require('bcrypt');
 const Review = require('./review.schema');
 const Cart = require('./cart.schema');
 const userSchema = new mongoose.Schema({
+  firstName: {
+    type: String,
+    required: true,
+  },
+  lastName: {
+    type: String,
+    required: true,
+  },
   email: {
     type: String,
     required: [true, 'Please enter an email'],
@@ -73,6 +81,11 @@ const userSchema = new mongoose.Schema({
     required: false,
     default: [],
     ref: 'Cart',
+  },
+  adress: {
+    type: String,
+    required: false,
+    default: 'Empty',
   },
 });
 

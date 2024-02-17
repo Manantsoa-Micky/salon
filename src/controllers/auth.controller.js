@@ -12,7 +12,9 @@ const signup = async (req, res, next) => {
     const user = await userService.createUser(req.body);
     const token = createToken(user._id, maxAge);
     res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge * 1000 });
-    res.status(201).json({ user: user._id });
+    res
+      .status(201)
+      .json({ userId: user._id, userRole: user.role, userCart: user.cart });
   } catch (error) {
     return next(error);
   }
