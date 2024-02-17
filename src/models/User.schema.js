@@ -12,7 +12,8 @@ const userSchema = new mongoose.Schema({
   },
   salary: {
     type: Number,
-    required: true,
+    required: false,
+    default: 0,
   },
   password: {
     type: String,
@@ -21,7 +22,8 @@ const userSchema = new mongoose.Schema({
   },
   role: {
     type: String,
-    required: [true, 'Please enter a role'],
+    required: false,
+    default: 'user',
   },
   username: {
     type: String,
@@ -30,6 +32,7 @@ const userSchema = new mongoose.Schema({
   },
   createdAt: {
     type: Date,
+    required: false,
     default: Date.now,
   },
   updatedAt: {
