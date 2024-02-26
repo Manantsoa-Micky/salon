@@ -16,9 +16,10 @@ const findUserById = async (id) => {
 };
 
 const getAllUsers = async () => {
-  const users = await User.find().select(
-    '_id firstName lastName matricule status role'
-  );
+  const users = await User.find({
+    status: { $ne: 'deleted' },
+    role: { $ne: 'customer' },
+  }).select('_id firstName lastName matricule status role');
   return users;
 };
 

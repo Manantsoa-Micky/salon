@@ -5,6 +5,7 @@ const router = Router();
 
 router.post('/addService', userController.addService);
 router.get('/get/:userId', userController.getOneUser);
+router.get('/delete/:userId', userController.softDeleteUser);
 router.get('/services', userController.getUserServices);
 router.get('/allUsers', userController.getAllUsers);
 router.delete('/removeService', userController.removeService);

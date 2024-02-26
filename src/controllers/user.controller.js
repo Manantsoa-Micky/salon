@@ -54,6 +54,18 @@ const addService = async (req, res, next) => {
   }
 };
 
+const softDeleteUser = async (req, res, next) => {
+  const userId = req.params.userId;
+  try {
+    const filter = { _id: userId };
+    const update = { status: 'deleted' };
+    await userService.updateUser(filter, update);
+    res.status(200).json({ message: 'Deleted' });
+  } catch (error) {
+    next(error);
+  }
+};
+
 const removeService = async (req, res, next) => {
   try {
     const { serviceName, userId } = req.body;
@@ -121,4 +133,5 @@ module.exports = {
   seedUsers,
   getAllUsers,
   getOneUser,
+  softDeleteUser,
 };
