@@ -1,0 +1,227 @@
+[
+  {
+    "firstName": "John",
+    "lastName": "Doe",
+    "email": "john.doe@example.com",
+    "salary": 50000,
+    "password": "aizertii997",
+    "role": "manager",
+    "username": "johndoe",
+    "hours": {
+      "begin": "08h00",
+      "end": "08h00"
+    },
+    "address": "123 Main St",
+    "matricule": "MT-20240226-1234"
+  },
+  {
+    "firstName": "Jane",
+    "lastName": "Smith",
+    "email": "jane.smith@example.com",
+    "salary": 60000,
+    "password": "aizertii997",
+    "role": "employee",
+    "username": "janesmith",
+    "hours": {
+      "begin": "08h00",
+      "end": "08h00"
+    },
+    "address": "456 Elm St",
+    "matricule": "MT-20240226-5678"
+  },
+  {
+    "firstName": "Michael",
+    "lastName": "Johnson",
+    "email": "michael.johnson@example.com",
+    "salary": 70000,
+    "password": "aizertii997",
+    "role": "admin",
+    "username": "michaeljohnson",
+    "hours": {
+      "begin": "08h00",
+      "end": "08h00"
+    },
+    "address": "789 Oak St",
+    "matricule": "MT-20240226-9012"
+  },
+  {
+    "firstName": "Emily",
+    "lastName": "Brown",
+    "email": "emily.brown@example.com",
+    "salary": 55000,
+    "password": "aizertii997",
+    "role": "manager",
+    "username": "emilybrown",
+    "hours": {
+      "begin": "08h00",
+      "end": "08h00"
+    },
+    "address": "1011 Pine St",
+    "matricule": "MT-20240226-3456"
+  },
+  {
+    "firstName": "David",
+    "lastName": "Wilson",
+    "email": "david.wilson@example.com",
+    "salary": 48000,
+    "password": "aizertii997",
+    "role": "employee",
+    "username": "davidwilson",
+    "hours": {
+      "begin": "08h00",
+      "end": "08h00"
+    },
+    "address": "1213 Maple St",
+    "matricule": "MT-20240226-7890"
+  },
+  {
+    "firstName": "Sarah",
+    "lastName": "Taylor",
+    "email": "sarah.taylor@example.com",
+    "salary": 62000,
+    "password": "aizertii997",
+    "role": "manager",
+    "username": "sarahtaylor",
+    "hours": {
+      "begin": "08h00",
+      "end": "08h00"
+    },
+    "address": "1415 Cedar St",
+    "matricule": "MT-20240226-2345"
+  },
+  {
+    "firstName": "Christopher",
+    "lastName": "Anderson",
+    "email": "christopher.anderson@example.com",
+    "salary": 53000,
+    "password": "aizertii997",
+    "role": "employee",
+    "username": "christopheranderson",
+    "hours": {
+      "begin": "08h00",
+      "end": "08h00"
+    },
+    "address": "1617 Birch St",
+    "matricule": "MT-20240226-6789"
+  },
+  {
+    "firstName": "Jessica",
+    "lastName": "Thomas",
+    "email": "jessica.thomas@example.com",
+    "salary": 59000,
+    "password": "aizertii997",
+    "role": "admin",
+    "username": "jessicathomas",
+    "hours": {
+      "begin": "08h00",
+      "end": "08h00"
+    },
+    "address": "1819 Fir St",
+    "matricule": "MT-20240226-0123"
+  },
+  {
+    "firstName": "Matthew",
+    "lastName": "Hernandez",
+    "email": "matthew.hernandez@example.com",
+    "salary": 51000,
+    "password": "aizertii997",
+    "role": "manager",
+    "username": "matthewhernandez",
+    "hours": {
+      "begin": "08h00",
+      "end": "08h00"
+    },
+    "address": "2021 Ash St",
+    "matricule": "MT-20240226-4567"
+  },
+  {
+    "firstName": "Amanda",
+    "lastName": "Young",
+    "email": "amanda.young@example.com",
+    "salary": 57000,
+    "password": "aizertii997",
+    "role": "employee",
+    "username": "amandayoung",
+    "hours": {
+      "begin": "08h00",
+      "end": "08h00"
+    },
+    "address": "2223 Spruce St",
+    "matricule": "MT-20240226-8901"
+  },
+  {
+    "firstName": "James",
+    "lastName": "Lee",
+    "email": "james.lee@example.com",
+    "salary": 54000,
+    "password": "aizertii997",
+    "role": "manager",
+    "username": "jameslee",
+    "hours": {
+      "begin": "08h00",
+      "end": "08h00"
+    },
+    "address": "2425 Oak St",
+    "matricule": "MT-20240226-2345"
+  },
+  {
+    "firstName": "Melissa",
+    "lastName": "Gonzalez",
+    "email": "melissa.gonzalez@example.com",
+    "salary": 56000,
+    "password": "aizertii997",
+    "role": "employee",
+    "username": "melissagonzalez",
+    "hours": {
+      "begin": "08h00",
+      "end": "08h00"
+    },
+    "address": "2627 Elm St",
+    "matricule": "MT-20240226-6789"
+  },
+  {
+    "firstName": "Daniel",
+    "lastName": "Martinez",
+    "email": "daniel.martinez@example.com",
+    "salary": 58000,
+    "password": "aizertii997",
+    "role": "admin",
+    "username": "danielmartinez",
+    "hours": {
+      "begin": "08h00",
+      "end": "08h00"
+    },
+    "address": "2829 Pine St",
+    "matricule": "MT-20240226-0123"
+  },
+  {
+    "firstName": "Ashley",
+    "lastName": "Lopez",
+    "email": "ashley.lopez@example.com",
+    "salary": 52000,
+    "password": "aizertii997",
+    "role": "manager",
+    "username": "ashleylopez",
+    "hours": {
+      "begin": "08h00",
+      "end": "08h00"
+    },
+    "address": "3031 Cedar St",
+    "matricule": "MT-20240226-4567"
+  },
+  {
+    "firstName": "Robert",
+    "lastName": "King",
+    "email": "robert.king@example.com",
+    "salary": 60000,
+    "password": "aizertii997",
+    "role": "employee",
+    "username": "robertking",
+    "hours": {
+      "begin": "08h00",
+      "end": "08h00"
+    },
+    "address": "3233 Birch St",
+    "matricule": "MT-20240226-8901"
+  }
+]

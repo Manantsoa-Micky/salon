@@ -34,7 +34,9 @@ const login = async (req, res, next) => {
     if (auth) {
       const token = createToken(user._id, maxAge);
       res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge * 1000 });
-      res.status(201).json({ user: user._id });
+      res
+        .status(201)
+        .json({ userId: user._id, userRole: user.role, userCart: user.cart });
     } else {
       throw new BadRequestException('Incorrect Email or password');
     }

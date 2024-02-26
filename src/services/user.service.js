@@ -3,6 +3,7 @@ const User = require('../models/User.schema');
 const Cart = require('../models/cart.schema');
 const Review = require('../models/review.schema');
 const { transformIdListToStringList } = require('../utils/helper');
+const seed = require('../sampleData/users.json');
 
 const createUser = async (userData) => {
   const user = await User.create(userData);
@@ -66,6 +67,30 @@ const addReview = async (reviewData, userId) => {
   return review;
 };
 
+const seedUsers = async () => {
+  for (const user in seed) {
+    seed.forEach(async (user) => {
+      const data = {
+        firstName: user.firstName,
+        lastName: user.lastName,
+        email: user.email,
+        salary: user.salary,
+        password: user.password,
+        role: user.role,
+        username: user.username,
+        hours: {
+          begin: user.hours.begin,
+          end: user.hours.end,
+        },
+        address: user.address,
+      };
+      await User.create(data);
+    });
+  }
+  const list = await User.find();
+  return list;
+};
+
 module.exports = {
   createUser,
   addService,
@@ -76,4 +101,5 @@ module.exports = {
   getAllUsers,
   hardDeleteUser,
   findUserById,
+  seedUsers,
 };

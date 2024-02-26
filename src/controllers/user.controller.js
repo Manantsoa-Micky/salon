@@ -83,6 +83,15 @@ const deleteUser = async (req, res, next) => {
   }
 };
 
+const seedUsers = async (req, res, next) => {
+  try {
+    const users = await userService.seedUsers();
+    res.status(201).json({ users: users });
+  } catch (error) {
+    next(error);
+  }
+};
+
 module.exports = {
   addService,
   removeService,
@@ -90,4 +99,5 @@ module.exports = {
   addToCart,
   addReview,
   deleteUser,
+  seedUsers,
 };

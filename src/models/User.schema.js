@@ -3,7 +3,12 @@ const { isEmail } = require('validator');
 const bcrypt = require('bcrypt');
 const Review = require('./review.schema');
 const Cart = require('./cart.schema');
+
 const userSchema = new mongoose.Schema({
+  matricule: {
+    type: String,
+    required: false,
+  },
   firstName: {
     type: String,
     required: true,
@@ -88,10 +93,18 @@ const userSchema = new mongoose.Schema({
     default: 'Empty',
   },
 });
+function generateMatricule() {
+  const currentDate = new Date().toISOString().slice(0, 10).replace(/-/g, ''); // Get current date in YYYYMMDD format
+  const randomNumber = Math.floor(Math.random() * 10000); // Generate a random 4-digit number
+  return `MT-${currentDate}-${randomNumber}`;
+}
 
 userSchema.pre('save', async function (next) {
   const salt = await bcrypt.genSalt();
   this.password = await bcrypt.hash(this.password, salt);
+  if (!this.matricule) {
+    this.matricule = generateMatricule();
+  }
   next();
 });
 
