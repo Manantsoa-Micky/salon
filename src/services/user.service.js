@@ -16,7 +16,9 @@ const findUserById = async (id) => {
 };
 
 const getAllUsers = async () => {
-  const users = await User.find();
+  const users = await User.find().select(
+    '_id firstName lastName matricule status role'
+  );
   return users;
 };
 
@@ -68,25 +70,24 @@ const addReview = async (reviewData, userId) => {
 };
 
 const seedUsers = async () => {
-  for (const user in seed) {
-    seed.forEach(async (user) => {
-      const data = {
-        firstName: user.firstName,
-        lastName: user.lastName,
-        email: user.email,
-        salary: user.salary,
-        password: user.password,
-        role: user.role,
-        username: user.username,
-        hours: {
-          begin: user.hours.begin,
-          end: user.hours.end,
-        },
-        address: user.address,
-      };
-      await User.create(data);
-    });
-  }
+  seed.forEach(async (user) => {
+    const data = {
+      firstName: user.firstName,
+      lastName: user.lastName,
+      email: user.email,
+      salary: user.salary,
+      password: user.password,
+      role: user.role,
+      username: user.username,
+      hours: {
+        begin: user.hours.begin,
+        end: user.hours.end,
+      },
+      adress: user.address,
+      status: 'active',
+    };
+    await User.create(data);
+  });
   const list = await User.find();
   return list;
 };

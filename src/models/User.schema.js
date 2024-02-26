@@ -87,10 +87,15 @@ const userSchema = new mongoose.Schema({
     default: [],
     ref: 'Cart',
   },
-  adress: {
+  address: {
     type: String,
     required: false,
     default: 'Empty',
+  },
+  status: {
+    type: String,
+    required: false,
+    default: 'active',
   },
 });
 function generateMatricule() {

@@ -7,6 +7,25 @@ const dotenv = require('dotenv');
 
 dotenv.config();
 
+const getAllUsers = async (req, res, next) => {
+  try {
+    const users = await userService.getAllUsers();
+    res.status(200).json({ users: users });
+  } catch (error) {
+    next(error);
+  }
+};
+
+const getOneUser = async (req, res, next) => {
+  try {
+    const id = req.params.userId;
+    const user = await userService.findUserById(id);
+    res.status(200).json(user);
+  } catch (error) {
+    next(error);
+  }
+};
+
 const getUserServices = async (req, res, next) => {
   try {
     const { userId } = req.body;
@@ -100,4 +119,6 @@ module.exports = {
   addReview,
   deleteUser,
   seedUsers,
+  getAllUsers,
+  getOneUser,
 };
