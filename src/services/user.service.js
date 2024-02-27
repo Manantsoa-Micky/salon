@@ -93,6 +93,25 @@ const seedUsers = async () => {
   return list;
 };
 
+const searchUser = async (query) => {
+  if (query === '') {
+    console.log('empty');
+    return await User.find();
+  } else {
+    return await User.find({
+      $or: [
+        { email: { $regex: query, $options: 'i' } },
+        { firstName: { $regex: query, $options: 'i' } },
+        { lastName: { $regex: query, $options: 'i' } },
+        { username: { $regex: query, $options: 'i' } },
+        { status: { $regex: query, $options: 'i' } },
+        { adress: { $regex: query, $options: 'i' } },
+        { role: { $regex: query, $options: 'i' } },
+      ],
+    });
+  }
+};
+
 module.exports = {
   createUser,
   addService,
@@ -104,4 +123,5 @@ module.exports = {
   hardDeleteUser,
   findUserById,
   seedUsers,
+  searchUser,
 };

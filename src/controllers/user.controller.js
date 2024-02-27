@@ -26,10 +26,21 @@ const getOneUser = async (req, res, next) => {
   }
 };
 
+const searchUser = async (req, res, next) => {
+  try {
+    const query = req.query.q;
+    const results = await userService.searchUser(query);
+    res.status(200).json(results);
+  } catch (error) {
+    next(error);
+  }
+};
+
 const updateUser = async (req, res, next) => {
   try {
-    const filter = req.body._id;
+    const filter = { _id: req.body._id };
     const update = req.body;
+    delete update._id;
     const user = await userService.updateUser(filter, update);
     res.status(200).json(user);
   } catch (error) {
@@ -146,4 +157,5 @@ module.exports = {
   getOneUser,
   softDeleteUser,
   updateUser,
+  searchUser,
 };
