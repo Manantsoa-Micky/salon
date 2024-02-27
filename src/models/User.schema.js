@@ -97,6 +97,11 @@ const userSchema = new mongoose.Schema({
     required: false,
     default: 'active',
   },
+  phoneNumber: {
+    type: String,
+    required: false,
+    default: '036 20 220 20',
+  },
 });
 function generateMatricule() {
   const currentDate = new Date().toISOString().slice(0, 10).replace(/-/g, ''); // Get current date in YYYYMMDD format

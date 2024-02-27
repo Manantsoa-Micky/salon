@@ -4,6 +4,7 @@ const userController = require('../controllers/user.controller');
 const router = Router();
 
 router.post('/addService', userController.addService);
+router.post('/update', userController.updateUser);
 router.get('/get/:userId', userController.getOneUser);
 router.get('/delete/:userId', userController.softDeleteUser);
 router.get('/services', userController.getUserServices);

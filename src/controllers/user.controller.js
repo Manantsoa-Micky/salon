@@ -26,6 +26,17 @@ const getOneUser = async (req, res, next) => {
   }
 };
 
+const updateUser = async (req, res, next) => {
+  try {
+    const filter = req.body._id;
+    const update = req.body;
+    const user = await userService.updateUser(filter, update);
+    res.status(200).json(user);
+  } catch (error) {
+    next(error);
+  }
+};
+
 const getUserServices = async (req, res, next) => {
   try {
     const { userId } = req.body;
@@ -134,4 +145,5 @@ module.exports = {
   getAllUsers,
   getOneUser,
   softDeleteUser,
+  updateUser,
 };
